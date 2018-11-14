@@ -1,1 +1,1 @@
-# My gulp-template
+# tabs element
