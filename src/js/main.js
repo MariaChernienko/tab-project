@@ -1,71 +1,33 @@
-var form = document.querySelector(".form-container");
-var btn = document.querySelector(".btn");
-var fields = document.querySelectorAll(".field");
+const btnHome = document.querySelector('[data-tab = home]');
+const btnProfile = document.querySelector('[data-tab = profile]');
+const btnContact = document.querySelector('[data-tab = contact]');
 
-var textVal = document.querySelectorAll(".textVal");
-var emailVal = document.querySelector(".emailVal");
-var passwordVal = document.querySelector(".passwordVal");
+const titleHome = document.querySelector('[data-item = home]');
+const titleProfile = document.querySelector('[data-item = profile]');
+const titleContact = document.querySelector('[data-item = contact]');
+
+const items = document.querySelectorAll('.active-title');
+const btn = document.querySelectorAll('[data-tab]');
 
 
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-  fields.forEach(element => {
-    element.classList.remove("empty");
-    if (element.value == 0) {
-      element.classList.add("empty");
-    } 
-  });
-  var emptyFieldsCounter = document.querySelectorAll(".empty").length;
-  if (emptyFieldsCounter == 0) {
-    form.submit();
-  }
-});
-
-textVal.forEach(element => {
-  element.addEventListener("input", function(event) {
-    deleteErrors();
-    var abs = element.value;
-    this.style.border = "1px solid green";
-
-    if(abs.match(/['"]/)) {
-      addError(element, "This field can not include &#39 and &#34");
-    }
+btn.forEach((element) => {
+  element.addEventListener('click', (event) => {
+    items.forEach((element) => {
+      element.classList.remove('active-title');
+      element.classList.add('unactive-title');
+    });
   });
 });
 
-emailVal.addEventListener("input", function(event) {
-  deleteErrors();
-  var abs = this.value;
-  this.style.border = "1px solid green";
-
-  if(!(abs.match(/[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i))) {
-    addError(emailVal, "This field should be like asd@asd.yu");
-  }
+btnHome.addEventListener('click', (event) => {
+  titleHome.classList.remove('unactive-title');
+  titleHome.classList.add('active-title');
 });
-
-passwordVal.addEventListener("input", function(event) {
-  deleteErrors();
-  var abs = this.value;
-  this.style.border = "1px solid green";
-
-  if(!(abs.match(/[0-9a-z_]{6}/i))) {
-    addError(passwordVal, "At least six characters");
-  }
+btnProfile.addEventListener('click', (event) => {
+  titleProfile.classList.remove('unactive-title');
+  titleProfile.classList.add('active-title');
 });
-
-function addError(element, errorMessage) {
-  var error = document.createElement("div");
-  error.className = "error";
-  error.style.color = "red";
-  error.innerHTML = errorMessage;
-  element.parentElement.appendChild(error);
-  element.style.border = "1px solid red";
-}
-function deleteErrors() {
-  var errors = form.querySelectorAll(".error");
-  for(var i = 0; i < errors.length; i++) {
-    errors[i].remove();
-  }
-}
-
-
+btnContact.addEventListener('click', (event) => {
+  titleContact.classList.remove('unactive-title');
+  titleContact.classList.add('active-title');
+});
