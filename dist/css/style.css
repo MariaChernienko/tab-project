@@ -4,12 +4,12 @@
   padding: 0;
   text-decoration: none; }
 
-.tab-container {
+.tabs {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px; }
-  .tab-container .tabs__item {
+  .tabs__item {
     display: inline-block;
     padding: 10px 25px 5px 25px;
     background-color: #fff;
@@ -21,19 +21,18 @@
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     transition: all 0.1s linear; }
-    .tab-container .tabs__item.active {
+    .tabs__item.active {
       border-top: 1px solid #e2e1e1;
       border-left: 1px solid #e2e1e1;
       border-right: 1px solid #e2e1e1;
       border-bottom: 1px solid #fff; }
-    .tab-container .tabs__item:hover {
+    .tabs__item:hover {
       color: blue; }
-  .tab-container .content {
+  .tabs__content {
     margin-top: -1px;
     background-color: #fff;
-    border-top: 1px solid #e2e1e1; }
-    .tab-container .content__item {
-      display: none; }
-      .tab-container .content__item.active {
-        display: block;
-        padding-top: 15px; }
+    border-top: 1px solid #e2e1e1;
+    display: none; }
+    .tabs__content.active {
+      display: block;
+      padding-top: 15px; }

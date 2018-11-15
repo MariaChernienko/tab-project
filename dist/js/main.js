@@ -1,26 +1,23 @@
 // eslint-disable-next-line func-names
-const tab = function () {
+(function () {
   const buttons = document.querySelectorAll('[data-tab]');
-  const descriptions = document.querySelectorAll('[data-description]');
-  const active = document.querySelectorAll('.active');
+  const tabContents = document.querySelectorAll('[data-content]');
+  const active = document.querySelectorAll('.tab .active');
 
   buttons.forEach((element) => {
     element.addEventListener('click', (event) => {
-      const curent = element.dataset.tab;
-      tabController(curent);
+      const tabName = element.dataset.tab;
+      activeTab(tabName);
     });
   });
-  function tabController(curent) {
+  function activeTab(tabName) {
     buttons.forEach((element) => {
       element.classList.remove('active');
     });
-    document.querySelector(`[data-tab="${curent}"]`).classList.add('active');
-    descriptions.forEach((element) => {
+    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+    tabContents.forEach((element) => {
       element.classList.remove('active');
     });
-    document.querySelector(`[data-description="${curent}"]`).classList.add('active');
+    document.querySelector(`[data-content="${tabName}"]`).classList.add('active');
   }
-};
-
-
-tab();
+}());

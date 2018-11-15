@@ -5,46 +5,43 @@ $grey-color: rgb(226, 225, 225);
   padding: 0;
   text-decoration: none;
 }
-.tab-container {
+.tabs {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  .tabs {
-    &__item {
-      display: inline-block;
-      padding: 10px 25px 5px 25px;
-      background-color: #fff;
-      color: #000;
-      border: 1px solid transparent;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      border-bottom: 1px solid $grey-color;
-      font-family: "Roboto", sans-serif;
-      font-size: 16px;
-      transition: all 0.1s linear;
-      &.active {
-        border-top: 1px solid $grey-color;
-        border-left: 1px solid $grey-color;
-        border-right: 1px solid $grey-color;
-        border-bottom: 1px solid #fff;
-      }
-      &:hover {
-        color: blue;
-      }
+
+  &__item {
+    display: inline-block;
+    padding: 10px 25px 5px 25px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: 1px solid $grey-color;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    transition: all 0.1s linear;
+    &.active {
+      border-top: 1px solid $grey-color;
+      border-left: 1px solid $grey-color;
+      border-right: 1px solid $grey-color;
+      border-bottom: 1px solid #fff;
+    }
+    &:hover {
+      color: blue;
     }
   }
-  .content {
+
+  &__content {
     margin-top: -1px;
     background-color: #fff;
     border-top: 1px solid rgb(226, 225, 225);
-    &__item {
-      display: none;
-
-      &.active {
-        display: block;
-        padding-top: 15px;
-      }
+    display: none;
+    &.active {
+      display: block;
+      padding-top: 15px;
     }
   }
 }
